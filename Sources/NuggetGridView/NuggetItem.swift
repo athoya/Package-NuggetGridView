@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct NuggetItem {
-    var color: Color = .white
-    var onHoverText: String = ""
+public struct NuggetItem {
+    public var color: Color = .white
+    public var onHoverText: String = ""
 }

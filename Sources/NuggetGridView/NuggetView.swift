@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct NuggerItemView: View {
-    var nuggetWidth: CGFloat = 80
-    var nuggetHeight: CGFloat = 50
-    var nuggetCornerRadius: CGFloat = 10
-    var nuggetItem: NuggetItem = NuggetItem()
+public struct NuggerItemView: View {
+    public var nuggetWidth: CGFloat = 80
+    public var nuggetHeight: CGFloat = 50
+    public var nuggetCornerRadius: CGFloat = 10
+    public var nuggetItem: NuggetItem = NuggetItem()
     
-    var rowIndex: Int = 0
-    var columIndex: Int = 0
+    public var rowIndex: Int = 0
+    public var columIndex: Int = 0
     
-    var onNuggetTap: (Int, Int) -> Void = { row, column in
+    public var onNuggetTap: (Int, Int) -> Void = { row, column in
         print("onNuggedTapped child")
     }
     
     @State var isPopOverShown: Bool = false
     
-    var body: some View {
+    public var body: some View {
         RoundedRectangle(cornerRadius: nuggetCornerRadius).fill(nuggetItem.color).frame(width: nuggetWidth, height: nuggetHeight)
             .popover(isPresented: $isPopOverShown, content: {
                 Text(nuggetItem.onHoverText)
@@ -38,18 +38,18 @@ struct NuggerItemView: View {
     }
 }
 
-struct NuggetView: View {
-    var items: [[NuggetItem]] = []
+public struct NuggetView: View {
+    public var items: [[NuggetItem]] = []
     
-    var nuggetWidth: CGFloat = 80
-    var nuggetHeight: CGFloat = 50
-    var nuggetCornerRadius: CGFloat = 10
+    public var nuggetWidth: CGFloat = 80
+    public var nuggetHeight: CGFloat = 50
+    public var nuggetCornerRadius: CGFloat = 10
     
-    var onNuggetTap: (Int, Int) -> Void = { row, column in
+    public var onNuggetTap: (Int, Int) -> Void = { row, column in
         print("onNuggedTapped parrent")
     }
         
-    var body: some View {
+    public var body: some View {
         ScrollView(.horizontal, showsIndicators: true) {
             VStack(alignment: .leading) {
                 ForEach(0 ..< items.count) { rowIndex in
